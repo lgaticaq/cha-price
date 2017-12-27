@@ -1,6 +1,6 @@
 {
   "name": "cha-price",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Get price of chaucha",
   "main": "src",
   "browser": {
