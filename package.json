@@ -1,0 +1,83 @@
+{
+  "name": "cha-price",
+  "version": "0.0.1",
+  "description": "Get price of chaucha",
+  "main": "src",
+  "browser": {
+    "./src/index.js": "./src/browser.js"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "format": "prettier-standard 'src/**/*.js' 'test/**/*.js'",
+    "precommit": "lint-staged",
+    "pretest": "npm run lint -s && npm run format -s",
+    "test": "istanbul cover _mocha",
+    "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags && npm publish",
+    "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags && npm publish",
+    "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags && npm publish"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lgaticaq/cha-price.git"
+  },
+  "keywords": [
+    "chaucha"
+  ],
+  "author": "Leonardo Gatica <lgatica@protonmail.com> (https://about.me/lgatica)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lgaticaq/cha-price/issues"
+  },
+  "homepage": "https://github.com/lgaticaq/cha-price#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "4.1.2",
+    "eslint": "4.14.0",
+    "eslint-config-standard": "11.0.0-beta.0",
+    "eslint-plugin-import": "2.8.0",
+    "eslint-plugin-node": "5.2.1",
+    "eslint-plugin-promise": "3.6.0",
+    "eslint-plugin-standard": "3.0.1",
+    "generate-changelog": "1.7.0",
+    "husky": "0.14.3",
+    "istanbul": "0.4.5",
+    "lint-staged": "6.0.0",
+    "mocha": "4.0.1",
+    "nock": "9.1.5",
+    "prettier-standard": "8.0.0"
+  },
+  "eslintConfig": {
+    "extends": "standard",
+    "rules": {
+      "no-console": [
+        "error"
+      ]
+    }
+  },
+  "eslintIgnore": [
+    "example.js",
+    "coverage"
+  ],
+  "lint-staged": {
+    "src/**/*.js": [
+      "eslint --fix",
+      "prettier-standard",
+      "git add"
+    ],
+    "test/**/*.js": [
+      "eslint --fix",
+      "prettier-standard",
+      "git add"
+    ]
+  },
+  "tonicExampleFilename": "example.js",
+  "renovate": {
+    "automerge": "minor",
+    "extends": [
+      ":library"
+    ]
+  }
+}
