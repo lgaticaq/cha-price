@@ -12,6 +12,7 @@
     "precommit": "lint-staged",
     "pretest": "npm run lint -s && npm run format -s",
     "test": "istanbul cover _mocha",
+    "build": "rollup -c",
     "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags && npm publish",
     "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags && npm publish",
     "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags && npm publish"
@@ -32,8 +33,13 @@
     "url": "https://github.com/lgaticaq/cha-price/issues"
   },
   "homepage": "https://github.com/lgaticaq/cha-price#readme",
-  "dependencies": {},
+  "dependencies": {
+    "jssha": "2.3.1"
+  },
   "devDependencies": {
+    "babel-core": "6.26.0",
+    "babel-plugin-external-helpers": "6.22.0",
+    "babel-preset-env": "1.6.1",
     "chai": "4.1.2",
     "eslint": "4.16.0",
     "eslint-config-standard": "11.0.0-beta.0",
@@ -45,9 +51,17 @@
     "husky": "0.14.3",
     "istanbul": "0.4.5",
     "lint-staged": "6.0.1",
-    "mocha": "4.0.1",
+    "mocha": "5.0.0",
     "nock": "9.1.6",
-    "prettier-standard": "8.0.0"
+    "prettier-standard": "8.0.0",
+    "rollup": "0.54.1",
+    "rollup-plugin-babel": "3.0.3",
+    "rollup-plugin-commonjs": "8.2.6",
+    "rollup-plugin-json": "2.3.0",
+    "rollup-plugin-node-builtins": "2.1.2",
+    "rollup-plugin-node-globals": "1.1.0",
+    "rollup-plugin-node-resolve": "3.0.2",
+    "rollup-plugin-uglify": "3.0.0"
   },
   "eslintConfig": {
     "extends": "standard",
@@ -58,6 +72,7 @@
     }
   },
   "eslintIgnore": [
+    "dist",
     "example.js",
     "coverage"
   ],

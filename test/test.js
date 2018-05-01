@@ -5,11 +5,20 @@ const { expect } = require('chai')
 const nock = require('nock')
 
 const lib = require('../src')
+const apiKey = '5WGDN4rD3Eqpz9tnMQuqyRCfqZUP4ccJsb'
+const secretKey = 'B7EWrck6QaJ8mPa5jYCqKNaagKiHDtq9LT'
 
 describe('cha', () => {
   describe('valid', () => {
     beforeEach(() => {
-      nock('http://api.orionx.io')
+      nock('https://api2.orionx.io', {
+        reqheaders: {
+          'Content-Type': 'application/json',
+          'X-ORIONX-TIMESTAMP': timestamp => /^\d{10}\.\d+$/.test(timestamp),
+          'X-ORIONX-APIKEY': '5WGDN4rD3Eqpz9tnMQuqyRCfqZUP4ccJsb',
+          'X-ORIONX-SIGNATURE': signature => /^\w{64}$/.test(signature)
+        }
+      })
         .post('/graphql', {
           query: '{ market(code: "CHACLP") { lastTrade { price }}}'
         })
@@ -25,7 +34,7 @@ describe('cha', () => {
     })
 
     it('should return a price', done => {
-      lib().then(price => {
+      lib(apiKey, secretKey).then(price => {
         expect(price).to.eql(10000)
         done()
       })
@@ -34,7 +43,14 @@ describe('cha', () => {
 
   describe('valid json with empty price', () => {
     beforeEach(() => {
-      nock('http://api.orionx.io')
+      nock('https://api2.orionx.io', {
+        reqheaders: {
+          'Content-Type': 'application/json',
+          'X-ORIONX-TIMESTAMP': timestamp => /^\d{10}\.\d+$/.test(timestamp),
+          'X-ORIONX-APIKEY': '5WGDN4rD3Eqpz9tnMQuqyRCfqZUP4ccJsb',
+          'X-ORIONX-SIGNATURE': signature => /^\w{64}$/.test(signature)
+        }
+      })
         .post('/graphql', {
           query: '{ market(code: "CHACLP") { lastTrade { price }}}'
         })
@@ -42,7 +58,7 @@ describe('cha', () => {
     })
 
     it('should return a null', done => {
-      lib().then(price => {
+      lib(apiKey, secretKey).then(price => {
         expect(price).to.be.an('null')
         done()
       })
@@ -51,7 +67,14 @@ describe('cha', () => {
 
   describe('invalid json', () => {
     beforeEach(() => {
-      nock('http://api.orionx.io')
+      nock('https://api2.orionx.io', {
+        reqheaders: {
+          'Content-Type': 'application/json',
+          'X-ORIONX-TIMESTAMP': timestamp => /^\d{10}\.\d+$/.test(timestamp),
+          'X-ORIONX-APIKEY': '5WGDN4rD3Eqpz9tnMQuqyRCfqZUP4ccJsb',
+          'X-ORIONX-SIGNATURE': signature => /^\w{64}$/.test(signature)
+        }
+      })
         .post('/graphql', {
           query: '{ market(code: "CHACLP") { lastTrade { price }}}'
         })
@@ -59,7 +82,7 @@ describe('cha', () => {
     })
 
     it('should return an error', done => {
-      lib().catch(err => {
+      lib(apiKey, secretKey).catch(err => {
         expect(err).to.be.an('error')
         done()
       })
@@ -68,7 +91,14 @@ describe('cha', () => {
 
   describe('wrong status code', () => {
     beforeEach(() => {
-      nock('http://api.orionx.io')
+      nock('https://api2.orionx.io', {
+        reqheaders: {
+          'Content-Type': 'application/json',
+          'X-ORIONX-TIMESTAMP': timestamp => /^\d{10}\.\d+$/.test(timestamp),
+          'X-ORIONX-APIKEY': '5WGDN4rD3Eqpz9tnMQuqyRCfqZUP4ccJsb',
+          'X-ORIONX-SIGNATURE': signature => /^\w{64}$/.test(signature)
+        }
+      })
         .post('/graphql', {
           query: '{ market(code: "CHACLP") { lastTrade { price }}}'
         })
@@ -76,7 +106,7 @@ describe('cha', () => {
     })
 
     it('should return an error', done => {
-      lib().catch(err => {
+      lib(apiKey, secretKey).catch(err => {
         expect(err).to.be.an('error')
         done()
       })
@@ -85,7 +115,14 @@ describe('cha', () => {
 
   describe('server error', () => {
     beforeEach(() => {
-      nock('http://api.orionx.io')
+      nock('https://api2.orionx.io', {
+        reqheaders: {
+          'Content-Type': 'application/json',
+          'X-ORIONX-TIMESTAMP': timestamp => /^\d{10}\.\d+$/.test(timestamp),
+          'X-ORIONX-APIKEY': '5WGDN4rD3Eqpz9tnMQuqyRCfqZUP4ccJsb',
+          'X-ORIONX-SIGNATURE': signature => /^\w{64}$/.test(signature)
+        }
+      })
         .post('/graphql', {
           query: '{ market(code: "CHACLP") { lastTrade { price }}}'
         })
@@ -93,7 +130,7 @@ describe('cha', () => {
     })
 
     it('should return an error', done => {
-      lib().catch(err => {
+      lib(apiKey, secretKey).catch(err => {
         expect(err).to.be.an('error')
         done()
       })

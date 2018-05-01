@@ -21,7 +21,11 @@ npm i -S cha-price
 ```js
 const cha = require('cha-price');
 
-cha()
+// Get from https://orionx.io/developers
+const apiKey = 'your-api-key'
+const secretKey = 'your-secret-key'
+
+cha(apiKey, secretKey)
   .then(console.log)
   .catch(console.error);
 ```

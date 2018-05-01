@@ -1,23 +1,34 @@
 'use strict'
 
-const http = require('http')
+const https = require('https')
+const crypto = require('crypto')
 
-module.exports = () => {
+module.exports = (apiKey, secretKey) => {
   return new Promise((resolve, reject) => {
+    if (!apiKey || !secretKey) {
+      return reject(new Error('Empty apiKey or secretKey'))
+    }
+    const timestamp = new Date().getTime() / 1000
     const postData = JSON.stringify({
       query: '{ market(code: "CHACLP") { lastTrade { price }}}'
     })
     const options = {
-      hostname: 'api.orionx.io',
-      port: 80,
+      hostname: 'api2.orionx.io',
+      port: 443,
       path: '/graphql',
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Content-Length': Buffer.byteLength(postData)
+        'Content-Length': Buffer.byteLength(postData),
+        'X-ORIONX-TIMESTAMP': timestamp,
+        'X-ORIONX-APIKEY': apiKey,
+        'X-ORIONX-SIGNATURE': crypto
+          .createHmac('sha256', secretKey)
+          .update(`${timestamp}${postData}`)
+          .digest('hex')
       }
     }
-    const req = http.request(options, res => {
+    const req = https.request(options, res => {
       if (res.statusCode !== 200) {
         reject(new Error(`Request Failed. Status Code: ${res.statusCode}`))
       } else {
