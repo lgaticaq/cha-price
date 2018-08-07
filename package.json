@@ -54,7 +54,7 @@
     "mocha": "5.2.0",
     "nock": "9.4.4",
     "prettier-standard": "8.0.1",
-    "rollup": "0.63.5",
+    "rollup": "0.64.0",
     "rollup-plugin-babel": "3.0.7",
     "rollup-plugin-commonjs": "9.1.4",
     "rollup-plugin-json": "2.3.1",
