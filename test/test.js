@@ -16,7 +16,7 @@ describe('cha', () => {
           'Content-Type': 'application/json',
           'X-ORIONX-TIMESTAMP': timestamp => /^\d{10}\.\d+$/.test(timestamp),
           'X-ORIONX-APIKEY': '5WGDN4rD3Eqpz9tnMQuqyRCfqZUP4ccJsb',
-          'X-ORIONX-SIGNATURE': signature => /^\w{64}$/.test(signature)
+          'X-ORIONX-SIGNATURE': signature => /^\w{128}$/.test(signature)
         }
       })
         .post('/graphql', {
@@ -48,7 +48,7 @@ describe('cha', () => {
           'Content-Type': 'application/json',
           'X-ORIONX-TIMESTAMP': timestamp => /^\d{10}\.\d+$/.test(timestamp),
           'X-ORIONX-APIKEY': '5WGDN4rD3Eqpz9tnMQuqyRCfqZUP4ccJsb',
-          'X-ORIONX-SIGNATURE': signature => /^\w{64}$/.test(signature)
+          'X-ORIONX-SIGNATURE': signature => /^\w{128}$/.test(signature)
         }
       })
         .post('/graphql', {
@@ -72,7 +72,7 @@ describe('cha', () => {
           'Content-Type': 'application/json',
           'X-ORIONX-TIMESTAMP': timestamp => /^\d{10}\.\d+$/.test(timestamp),
           'X-ORIONX-APIKEY': '5WGDN4rD3Eqpz9tnMQuqyRCfqZUP4ccJsb',
-          'X-ORIONX-SIGNATURE': signature => /^\w{64}$/.test(signature)
+          'X-ORIONX-SIGNATURE': signature => /^\w{128}$/.test(signature)
         }
       })
         .post('/graphql', {
@@ -96,7 +96,7 @@ describe('cha', () => {
           'Content-Type': 'application/json',
           'X-ORIONX-TIMESTAMP': timestamp => /^\d{10}\.\d+$/.test(timestamp),
           'X-ORIONX-APIKEY': '5WGDN4rD3Eqpz9tnMQuqyRCfqZUP4ccJsb',
-          'X-ORIONX-SIGNATURE': signature => /^\w{64}$/.test(signature)
+          'X-ORIONX-SIGNATURE': signature => /^\w{128}$/.test(signature)
         }
       })
         .post('/graphql', {
@@ -120,7 +120,7 @@ describe('cha', () => {
           'Content-Type': 'application/json',
           'X-ORIONX-TIMESTAMP': timestamp => /^\d{10}\.\d+$/.test(timestamp),
           'X-ORIONX-APIKEY': '5WGDN4rD3Eqpz9tnMQuqyRCfqZUP4ccJsb',
-          'X-ORIONX-SIGNATURE': signature => /^\w{64}$/.test(signature)
+          'X-ORIONX-SIGNATURE': signature => /^\w{128}$/.test(signature)
         }
       })
         .post('/graphql', {

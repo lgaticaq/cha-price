@@ -23,7 +23,7 @@ module.exports = (apiKey, secretKey) => {
         'X-ORIONX-TIMESTAMP': timestamp,
         'X-ORIONX-APIKEY': apiKey,
         'X-ORIONX-SIGNATURE': crypto
-          .createHmac('sha256', secretKey)
+          .createHmac('sha512', secretKey)
           .update(`${timestamp}${postData}`)
           .digest('hex')
       }
