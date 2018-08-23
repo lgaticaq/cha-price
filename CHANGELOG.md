@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/lgaticaq/cha-price/compare/v2.0.0...v2.0.1) (2018-08-23)
+
+
+### Bug Fixes
+
+* **orionx:** fix HMAC ([3bfc9d9](https://github.com/lgaticaq/cha-price/commit/3bfc9d9))
+
 ## 2.0.0 (2018-05-01)
 
 ##### Breaking Changes
@@ -61,4 +68,3 @@
 ##### New Features
 
 * **src:**  first commit ([b5d914bb](https://github.com/lgaticaq/cha-price/commit/b5d914bbf51a2925a9996f98eff7c357a62cc01e))
-
