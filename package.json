@@ -15,7 +15,9 @@
     "build": "rollup -c",
     "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags && npm publish",
     "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags && npm publish",
-    "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags && npm publish"
+    "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags && npm publish",
+    "travis-deploy-once": "travis-deploy-once",
+    "semantic-release": "semantic-release"
   },
   "engines": {
     "node": ">=8"
@@ -37,6 +39,10 @@
     "jssha": "2.3.1"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "3.0.0",
+    "@semantic-release/git": "7.0.1",
+    "@semantic-release/gitlab": "3.0.1",
+    "@semantic-release/npm": "5.0.2",
     "babel-core": "6.26.3",
     "babel-plugin-external-helpers": "6.22.0",
     "babel-preset-env": "1.7.0",
@@ -61,7 +67,9 @@
     "rollup-plugin-node-builtins": "2.1.2",
     "rollup-plugin-node-globals": "1.2.1",
     "rollup-plugin-node-resolve": "3.3.0",
-    "rollup-plugin-uglify": "4.0.0"
+    "rollup-plugin-uglify": "4.0.0",
+    "semantic-release": "15.9.9",
+    "travis-deploy-once": "5.0.2"
   },
   "eslintConfig": {
     "extends": "standard",
@@ -94,5 +102,24 @@
     "extends": [
       ":library"
     ]
+  },
+  "release": {
+    "verifyConditions": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git",
+      "@semantic-release/gitlab"
+    ],
+    "prepare": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ],
+    "publish": [
+      "@semantic-release/npm",
+      "@semantic-release/gitlab"
+    ],
+    "success": false,
+    "fail": false
   }
 }
