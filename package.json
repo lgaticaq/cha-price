@@ -38,10 +38,10 @@
     "@commitlint/cli": "7.2.1",
     "@commitlint/config-conventional": "7.1.2",
     "@commitlint/prompt-cli": "7.2.1",
-    "@semantic-release/changelog": "3.0.0",
-    "@semantic-release/git": "7.0.4",
-    "@semantic-release/github": "5.0.6",
-    "@semantic-release/npm": "5.0.4",
+    "@semantic-release/changelog": "3.0.1",
+    "@semantic-release/git": "7.0.5",
+    "@semantic-release/github": "5.2.0",
+    "@semantic-release/npm": "5.0.5",
     "babel-core": "6.26.3",
     "babel-plugin-external-helpers": "6.22.0",
     "babel-preset-env": "1.7.0",
@@ -68,7 +68,7 @@
     "rollup-plugin-node-globals": "1.4.0",
     "rollup-plugin-node-resolve": "3.4.0",
     "rollup-plugin-uglify": "6.0.0",
-    "semantic-release": "15.9.17"
+    "semantic-release": "15.10.3"
   },
   "eslintConfig": {
     "extends": "standard",
