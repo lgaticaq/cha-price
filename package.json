@@ -41,7 +41,7 @@
     "@semantic-release/changelog": "3.0.1",
     "@semantic-release/git": "7.0.5",
     "@semantic-release/github": "5.2.6",
-    "@semantic-release/npm": "5.1.1",
+    "@semantic-release/npm": "5.1.2",
     "babel-core": "6.26.3",
     "babel-plugin-external-helpers": "6.22.0",
     "babel-preset-env": "1.7.0",
@@ -68,7 +68,7 @@
     "rollup-plugin-node-globals": "1.4.0",
     "rollup-plugin-node-resolve": "3.4.0",
     "rollup-plugin-uglify": "6.0.0",
-    "semantic-release": "15.12.5"
+    "semantic-release": "15.13.0"
   },
   "eslintConfig": {
     "extends": "standard",
