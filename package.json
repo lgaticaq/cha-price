@@ -40,7 +40,7 @@
     "@commitlint/prompt-cli": "7.2.1",
     "@semantic-release/changelog": "3.0.1",
     "@semantic-release/git": "7.0.6",
-    "@semantic-release/github": "5.2.6",
+    "@semantic-release/github": "5.2.7",
     "@semantic-release/npm": "5.1.2",
     "babel-core": "6.26.3",
     "babel-plugin-external-helpers": "6.22.0",
