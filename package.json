@@ -61,7 +61,7 @@
     "nyc-config-common": "1.0.1",
     "prettier-standard": "16.4.1",
     "rollup": "2.79.1",
-    "rollup-plugin-babel": "4.4.0",
+    "@rollup/plugin-babel": "5.0.0",
     "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-json": "4.0.0",
     "rollup-plugin-node-builtins": "2.1.2",
